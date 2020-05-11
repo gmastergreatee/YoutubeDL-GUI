@@ -142,7 +142,7 @@ namespace YoutubeDL_GUI
 
             if (!chkCustomArgs.Checked)
             {
-                txtOut.AppendText("COMMAND : youtube-dl.exe " + args + (chkDownloadLink.Checked ? " -g" : "") + txtLink.Text + "\r\n\r\n");
+                txtOut.AppendText("COMMAND : youtube-dl.exe " + args + (chkDownloadLink.Checked ? " -g" : "") + " " + txtLink.Text + "\r\n\r\n");
             }
             else
             {
