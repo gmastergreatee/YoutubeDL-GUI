@@ -41,7 +41,11 @@ namespace YoutubeDL_GUI
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Environment.Exit(0);
+            try
+            {
+                Environment.Exit(0);
+            }
+            catch { }
         }
 
         private void button1_Click(object sender, EventArgs e)
