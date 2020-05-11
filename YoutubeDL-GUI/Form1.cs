@@ -139,6 +139,7 @@ namespace YoutubeDL_GUI
             txtPlaylistEnd.Enabled = false;
             txtExternalApp.Enabled = false;
             txtExternalAppArgs.Enabled = false;
+            txtPad.Enabled = false;
 
             if (!chkCustomArgs.Checked)
             {
@@ -169,6 +170,7 @@ namespace YoutubeDL_GUI
             txtPlaylistEnd.Enabled = chkPlaylistEnd.Checked;
             txtExternalApp.Enabled = chkExternalApp.Checked;
             txtExternalAppArgs.Enabled = chkExternalApp.Checked;
+            txtPad.Enabled = chkNumber.Checked;
 
             btnGetData.Text = "Get Data";
             proc = null;
@@ -268,7 +270,8 @@ namespace YoutubeDL_GUI
 
         private void chkNumber_CheckedChanged(object sender, EventArgs e)
         {
-            txtNumber.Enabled = chkNumber.Enabled;
+            txtNumber.Enabled = chkNumber.Checked;
+            txtPad.Enabled = chkNumber.Checked;
         }
 
         private void chkPlaylistStart_CheckedChanged(object sender, EventArgs e)
@@ -291,6 +294,7 @@ namespace YoutubeDL_GUI
             txtExternalApp.Enabled = chkExternalApp.Checked;
             txtExternalAppArgs.Enabled = chkExternalApp.Checked;
             btnSend.Enabled = chkExternalApp.Checked;
+            chkNumber.Checked = false;
         }
 
         private void btnSend_Click(object sender, EventArgs e)
@@ -308,7 +312,7 @@ namespace YoutubeDL_GUI
                 return;
             }
 
-            var maxPadding = vidLinks.Count.ToString().Length;
+            var maxPadding = (int)txtPad.Value;
             for (var i = 0; i < vidLinks.Count; i++)
             {
                 var counterPad = chkNumber.Checked ? counter.ToString().PadLeft(maxPadding, '0') + ". " : "";

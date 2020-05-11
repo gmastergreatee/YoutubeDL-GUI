@@ -310,10 +310,16 @@
             // 
             // txtPad
             // 
+            this.txtPad.Enabled = false;
             this.txtPad.Location = new System.Drawing.Point(327, 74);
             this.txtPad.Name = "txtPad";
             this.txtPad.Size = new System.Drawing.Size(88, 20);
             this.txtPad.TabIndex = 23;
+            this.txtPad.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // label4
             // 
