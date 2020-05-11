@@ -223,7 +223,7 @@ namespace YoutubeDL_GUI
                 if (Counter % 2 == 0 || chkDownloadLink.Checked)
                 {
                     WriteToOut(e.Data);
-                    if (!chkCustomArgs.Checked)
+                    if (!chkCustomArgs.Checked && Counter % 2 == 0)
                         vidTitles.Add(e.Data.Replace("\r\n", "").Replace("\n", ""));
                 }
 
