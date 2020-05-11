@@ -193,6 +193,20 @@ namespace YoutubeDL_GUI
         {
             if (!string.IsNullOrWhiteSpace(e.Data))
             {
+                if (vidLinks.FirstOrDefault(i => i == e.Data.Trim().Replace("\r\n", "").Replace("\n", "")) != null)
+                {
+                    return;
+                }
+
+                if ((e.Data.Trim().StartsWith("http://") || e.Data.Trim().StartsWith("https://")) && Counter % 2 == 0)
+                {
+                    if (chkDownloadLink.Checked)
+                    {
+                        WriteToOut("Mirror : " + e.Data);
+                    }
+                    return;
+                }
+
                 if (Counter % 2 == 1 && chkCustomArgs.Checked == false)
                 {
                     vidLinks.Add(e.Data.Replace("\r\n", "").Replace("\n", ""));
