@@ -100,7 +100,7 @@
             this.txtOut.Name = "txtOut";
             this.txtOut.ReadOnly = true;
             this.txtOut.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtOut.Size = new System.Drawing.Size(490, 149);
+            this.txtOut.Size = new System.Drawing.Size(490, 196);
             this.txtOut.TabIndex = 2;
             this.txtOut.WordWrap = false;
             // 
@@ -164,6 +164,7 @@
             // chkNumber
             // 
             this.chkNumber.AutoSize = true;
+            this.chkNumber.Enabled = false;
             this.chkNumber.Location = new System.Drawing.Point(7, 75);
             this.chkNumber.Name = "chkNumber";
             this.chkNumber.Size = new System.Drawing.Size(127, 17);
@@ -250,7 +251,7 @@
             this.groupBox2.Controls.Add(this.txtOut);
             this.groupBox2.Location = new System.Drawing.Point(12, 399);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(502, 174);
+            this.groupBox2.Size = new System.Drawing.Size(502, 221);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Output";
@@ -482,7 +483,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(526, 585);
+            this.ClientSize = new System.Drawing.Size(526, 632);
             this.Controls.Add(this.btnUpdateYoutubeDL);
             this.Controls.Add(this.btnCopyToClipboard);
             this.Controls.Add(this.txtCustomArgs);

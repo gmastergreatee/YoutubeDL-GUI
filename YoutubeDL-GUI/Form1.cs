@@ -294,7 +294,9 @@ namespace YoutubeDL_GUI
             txtExternalApp.Enabled = chkExternalApp.Checked;
             txtExternalAppArgs.Enabled = chkExternalApp.Checked;
             btnSend.Enabled = chkExternalApp.Checked;
-            chkNumber.Checked = false;
+            chkNumber.Enabled = chkExternalApp.Checked;
+            txtNumber.Enabled = chkExternalApp.Checked && chkNumber.Checked;
+            txtPad.Enabled = chkExternalApp.Checked && chkNumber.Checked;
         }
 
         private void btnSend_Click(object sender, EventArgs e)
