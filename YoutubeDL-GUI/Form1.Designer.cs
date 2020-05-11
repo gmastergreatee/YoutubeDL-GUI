@@ -58,6 +58,7 @@
             this.chkCustomArgs = new System.Windows.Forms.CheckBox();
             this.txtCustomArgs = new System.Windows.Forms.TextBox();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.btnCopyToClipboard = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlaylistStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlaylistEnd)).BeginInit();
@@ -426,11 +427,24 @@
             this.toolTip.SetToolTip(this.txtCustomArgs, "--write-auto-sub : Youtube ONLY\r\n--write-sub : All others\r\n> asd.txt : Console ou" +
         "tput to file");
             // 
+            // btnCopyToClipboard
+            // 
+            this.btnCopyToClipboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCopyToClipboard.AutoSize = true;
+            this.btnCopyToClipboard.Location = new System.Drawing.Point(306, 390);
+            this.btnCopyToClipboard.Name = "btnCopyToClipboard";
+            this.btnCopyToClipboard.Size = new System.Drawing.Size(124, 23);
+            this.btnCopyToClipboard.TabIndex = 25;
+            this.btnCopyToClipboard.Text = "Copy links to Clipboard";
+            this.btnCopyToClipboard.UseVisualStyleBackColor = true;
+            this.btnCopyToClipboard.Click += new System.EventHandler(this.btnCopyToClipboard_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(523, 647);
+            this.Controls.Add(this.btnCopyToClipboard);
             this.Controls.Add(this.txtCustomArgs);
             this.Controls.Add(this.chkCustomArgs);
             this.Controls.Add(this.groupBox1);
@@ -446,7 +460,7 @@
             this.Controls.Add(this.label1);
             this.MinimumSize = new System.Drawing.Size(411, 360);
             this.Name = "Form1";
-            this.Text = "YoutubeDL Script Generator";
+            this.Text = "YoutubeDL GUI";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber)).EndInit();
@@ -494,6 +508,7 @@
         private System.Windows.Forms.CheckBox chkCustomArgs;
         private System.Windows.Forms.TextBox txtCustomArgs;
         private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.Button btnCopyToClipboard;
     }
 }
 

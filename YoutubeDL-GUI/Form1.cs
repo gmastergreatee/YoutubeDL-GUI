@@ -312,5 +312,17 @@ namespace YoutubeDL_GUI
         {
             txtCustomArgs.Enabled = chkCustomArgs.Checked;
         }
+
+        private void btnCopyToClipboard_Click(object sender, EventArgs e)
+        {
+            var links = "";
+            foreach (var itm in vidLinks)
+            {
+                links += itm + "\n";
+            }
+            Clipboard.SetText(links);
+
+            txtOut.AppendText("Copied " + vidLinks.Count + " link/s to clipboard\r\n\r\n");
+        }
     }
 }
