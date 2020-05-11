@@ -11,7 +11,7 @@ using System.Collections.Generic;
 
 namespace YoutubeDL_GUI
 {
-    public partial class Form1 : Form
+    public partial class mainWindow : Form
     {
         List<string> vidTitles = new List<string>();
         List<string> vidLinks = new List<string>();
@@ -29,7 +29,7 @@ namespace YoutubeDL_GUI
         Process proc = null;
         public bool IsFetchingData { get; set; } = false;
 
-        public Form1()
+        public mainWindow()
         {
             InitializeComponent();
         }
@@ -323,6 +323,25 @@ namespace YoutubeDL_GUI
             Clipboard.SetText(links);
 
             txtOut.AppendText("Copied " + vidLinks.Count + " link/s to clipboard\r\n\r\n");
+        }
+
+        private void btnUpdateYoutubeDL_Click(object sender, EventArgs e)
+        {
+            Hide();
+            var _uproc = new Process();
+            _uproc.EnableRaisingEvents = true;
+            _uproc.StartInfo.FileName = "youtube-dl.exe";
+            _uproc.StartInfo.Arguments = "-U";
+            _uproc.Exited += ytd_update_complete;
+            _uproc.Start();
+        }
+
+        private void ytd_update_complete(object sender, EventArgs e)
+        {
+            Invoke(new Action(() =>
+            {
+                Show();
+            }));
         }
     }
 }

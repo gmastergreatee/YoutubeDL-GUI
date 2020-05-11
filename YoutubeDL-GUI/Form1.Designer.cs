@@ -1,6 +1,6 @@
 ﻿namespace YoutubeDL_GUI
 {
-    partial class Form1
+    partial class mainWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -59,6 +59,7 @@
             this.txtCustomArgs = new System.Windows.Forms.TextBox();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnCopyToClipboard = new System.Windows.Forms.Button();
+            this.btnUpdateYoutubeDL = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlaylistStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlaylistEnd)).BeginInit();
@@ -439,11 +440,23 @@
             this.btnCopyToClipboard.UseVisualStyleBackColor = true;
             this.btnCopyToClipboard.Click += new System.EventHandler(this.btnCopyToClipboard_Click);
             // 
-            // Form1
+            // btnUpdateYoutubeDL
+            // 
+            this.btnUpdateYoutubeDL.AutoSize = true;
+            this.btnUpdateYoutubeDL.Location = new System.Drawing.Point(15, 370);
+            this.btnUpdateYoutubeDL.Name = "btnUpdateYoutubeDL";
+            this.btnUpdateYoutubeDL.Size = new System.Drawing.Size(124, 23);
+            this.btnUpdateYoutubeDL.TabIndex = 26;
+            this.btnUpdateYoutubeDL.Text = "Update Youtube-DL";
+            this.btnUpdateYoutubeDL.UseVisualStyleBackColor = true;
+            this.btnUpdateYoutubeDL.Click += new System.EventHandler(this.btnUpdateYoutubeDL_Click);
+            // 
+            // mainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(471, 585);
+            this.Controls.Add(this.btnUpdateYoutubeDL);
             this.Controls.Add(this.btnCopyToClipboard);
             this.Controls.Add(this.txtCustomArgs);
             this.Controls.Add(this.chkCustomArgs);
@@ -459,7 +472,7 @@
             this.Controls.Add(this.txtLink);
             this.Controls.Add(this.label1);
             this.MinimumSize = new System.Drawing.Size(452, 550);
-            this.Name = "Form1";
+            this.Name = "mainWindow";
             this.Text = "YoutubeDL GUI";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -509,6 +522,7 @@
         private System.Windows.Forms.TextBox txtCustomArgs;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.Button btnCopyToClipboard;
+        private System.Windows.Forms.Button btnUpdateYoutubeDL;
     }
 }
 
