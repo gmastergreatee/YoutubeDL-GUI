@@ -271,7 +271,7 @@ namespace YoutubeDL_GUI
                 txtExternalApp.Text = "C:\\Program Files\\Internet Download Manager\\idman.exe";
             }
 
-            txtCustomArgs.Text = "-o \"%(autonumber)s-%(title)s.%(ext)s\" --write-sub --sub-lang en --sub-format srt --skip-download {link}";
+            txtCustomArgs.Text = "-o \"%(autonumber)02d. %(title)s.%(ext)s\" --write-sub --sub-lang en --sub-format srt --skip-download {link}";
         }
 
         private void chkNumber_CheckedChanged(object sender, EventArgs e)
