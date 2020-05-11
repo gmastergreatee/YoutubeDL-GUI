@@ -320,9 +320,14 @@ namespace YoutubeDL_GUI
             {
                 links += itm + "\n";
             }
-            Clipboard.SetText(links);
 
-            txtOut.AppendText("Copied " + vidLinks.Count + " link/s to clipboard\r\n\r\n");
+            if (!string.IsNullOrWhiteSpace(links))
+                Clipboard.SetText(links);
+
+            if (vidLinks.Count > 0)
+                txtOut.AppendText("Copied " + vidLinks.Count + " link/s to clipboard\r\n\r\n");
+            else
+                txtOut.AppendText("No links captured yet\r\n\r\n");
         }
 
         private void btnUpdateYoutubeDL_Click(object sender, EventArgs e)
