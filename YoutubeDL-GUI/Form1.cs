@@ -140,6 +140,7 @@ namespace YoutubeDL_GUI
             txtExternalApp.Enabled = false;
             txtExternalAppArgs.Enabled = false;
             txtPad.Enabled = false;
+            txtNumber.Enabled = false;
 
             if (!chkCustomArgs.Checked)
             {
@@ -170,7 +171,8 @@ namespace YoutubeDL_GUI
             txtPlaylistEnd.Enabled = chkPlaylistEnd.Checked;
             txtExternalApp.Enabled = chkExternalApp.Checked;
             txtExternalAppArgs.Enabled = chkExternalApp.Checked;
-            txtPad.Enabled = chkNumber.Checked;
+            txtPad.Enabled = chkExternalApp.Checked && chkNumber.Checked && chkNumber.Enabled;
+            txtNumber.Enabled = chkExternalApp.Checked && chkNumber.Checked && chkNumber.Enabled;
 
             btnGetData.Text = "Get Data";
             proc = null;
