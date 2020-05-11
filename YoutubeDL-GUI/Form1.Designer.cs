@@ -96,7 +96,7 @@
             this.txtOut.Name = "txtOut";
             this.txtOut.ReadOnly = true;
             this.txtOut.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtOut.Size = new System.Drawing.Size(487, 191);
+            this.txtOut.Size = new System.Drawing.Size(487, 156);
             this.txtOut.TabIndex = 2;
             this.txtOut.WordWrap = false;
             // 
@@ -244,9 +244,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.txtOut);
-            this.groupBox2.Location = new System.Drawing.Point(12, 419);
+            this.groupBox2.Location = new System.Drawing.Point(12, 399);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(499, 216);
+            this.groupBox2.Size = new System.Drawing.Size(499, 181);
             this.groupBox2.TabIndex = 15;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Output";
@@ -275,7 +275,7 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(436, 390);
+            this.button1.Location = new System.Drawing.Point(436, 370);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 18;
@@ -295,7 +295,7 @@
             this.groupBox3.Controls.Add(this.txtExternalAppArgs);
             this.groupBox3.Controls.Add(this.txtExternalApp);
             this.groupBox3.Controls.Add(this.chkExternalApp);
-            this.groupBox3.Location = new System.Drawing.Point(12, 263);
+            this.groupBox3.Location = new System.Drawing.Point(12, 243);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(499, 121);
             this.groupBox3.TabIndex = 19;
@@ -411,7 +411,7 @@
             this.chkCustomArgs.Size = new System.Drawing.Size(85, 17);
             this.chkCustomArgs.TabIndex = 23;
             this.chkCustomArgs.Text = "Custom Args";
-            this.toolTip.SetToolTip(this.chkCustomArgs, "If enabled, none of the above options apply");
+            this.toolTip.SetToolTip(this.chkCustomArgs, "If enabled, none of the other options will be applicable");
             this.chkCustomArgs.UseVisualStyleBackColor = true;
             this.chkCustomArgs.CheckedChanged += new System.EventHandler(this.chkCustomArgs_CheckedChanged);
             // 
@@ -431,7 +431,7 @@
             // 
             this.btnCopyToClipboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCopyToClipboard.AutoSize = true;
-            this.btnCopyToClipboard.Location = new System.Drawing.Point(306, 390);
+            this.btnCopyToClipboard.Location = new System.Drawing.Point(306, 370);
             this.btnCopyToClipboard.Name = "btnCopyToClipboard";
             this.btnCopyToClipboard.Size = new System.Drawing.Size(124, 23);
             this.btnCopyToClipboard.TabIndex = 25;
@@ -443,7 +443,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(523, 647);
+            this.ClientSize = new System.Drawing.Size(523, 592);
             this.Controls.Add(this.btnCopyToClipboard);
             this.Controls.Add(this.txtCustomArgs);
             this.Controls.Add(this.chkCustomArgs);
