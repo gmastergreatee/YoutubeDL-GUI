@@ -27,7 +27,9 @@ namespace YoutubeDL_GUI
         };
 
         Process proc = null;
+        ConfigSaver configSaver = new ConfigSaver();
         public bool IsFetchingData { get; set; } = false;
+        public bool IsUpdating { get; set; } = false;
 
         public mainWindow()
         {
@@ -43,6 +45,35 @@ namespace YoutubeDL_GUI
         {
             try
             {
+                var config = new YtdConfig()
+                {
+                    Link = txtLink.Text.Trim(),
+
+                    IsRegexChecked = chkTitle.Checked,
+                    Regex = txtTitle.Text.Trim(),
+                    QualityIndex = cmbQuality.SelectedIndex,
+
+                    IsPlaylistStart = chkPlaylistStart.Checked,
+                    PlaylistStart = (int)txtPlaylistStart.Value,
+
+                    IsPlaylistEnd = chkPlaylistEnd.Checked,
+                    PlaylistEnd = (int)txtPlaylistEnd.Value,
+
+                    IsNotPlaylist = chkNotPlaylist.Checked,
+                    IsShowDownloadLinks = chkDownloadLink.Checked,
+
+                    IsCustomArgs = chkCustomArgs.Checked,
+                    CustomArgs = txtCustomArgs.Text.Trim(),
+
+                    IsExternalApp = chkExternalApp.Checked,
+                    ExternalAppLocation = txtExternalApp.Text.Trim(),
+                    ExternalAppArgs = txtExternalAppArgs.Text.Trim(),
+
+                    IsAutoNumberingStart = chkNumber.Checked,
+                    AutoNumberStart = (int)txtNumber.Value,
+                    AutoNumberPadding = (int)txtPad.Value,
+                };
+                configSaver.SaveConfig(config);
                 Environment.Exit(0);
             }
             catch { }
@@ -146,6 +177,11 @@ namespace YoutubeDL_GUI
             txtPad.Enabled = false;
             txtNumber.Enabled = false;
 
+            cmbQuality.Enabled = false;
+            btnReset.Enabled = false;
+            btnUpdateYoutubeDL.Enabled = false;
+            btnCopyToClipboard.Enabled = false;
+
             if (!chkCustomArgs.Checked)
             {
                 txtOut.AppendText("COMMAND : youtube-dl.exe " + args + (chkDownloadLink.Checked ? " -g" : "") + " " + txtLink.Text + "\r\n\r\n");
@@ -177,6 +213,11 @@ namespace YoutubeDL_GUI
             txtExternalAppArgs.Enabled = chkExternalApp.Checked;
             txtPad.Enabled = chkExternalApp.Checked && chkNumber.Checked && chkNumber.Enabled;
             txtNumber.Enabled = chkExternalApp.Checked && chkNumber.Checked && chkNumber.Enabled;
+
+            cmbQuality.Enabled = true;
+            btnReset.Enabled = true;
+            btnUpdateYoutubeDL.Enabled = true;
+            btnCopyToClipboard.Enabled = true;
 
             btnGetData.Text = "Get Data";
             proc = null;
@@ -260,18 +301,8 @@ namespace YoutubeDL_GUI
             cmbQuality.Items.Add("360p");
             cmbQuality.Items.Add("144p");
 
-            cmbQuality.SelectedIndex = 1;
-
-            if (Environment.Is64BitOperatingSystem)
-            {
-                txtExternalApp.Text = "C:\\Program Files (x86)\\Internet Download Manager\\idman.exe";
-            }
-            else
-            {
-                txtExternalApp.Text = "C:\\Program Files\\Internet Download Manager\\idman.exe";
-            }
-
-            txtCustomArgs.Text = "-o \"%(autonumber)02d. %(title)s.%(ext)s\" --write-sub --sub-lang en --sub-format srt --skip-download {link}";
+            var config = configSaver.GetConfig();
+            ResetInterface(config);
         }
 
         private void chkNumber_CheckedChanged(object sender, EventArgs e)
@@ -360,6 +391,7 @@ namespace YoutubeDL_GUI
 
         private void btnUpdateYoutubeDL_Click(object sender, EventArgs e)
         {
+            IsUpdating = true;
             Hide();
             var _uproc = new Process();
             _uproc.EnableRaisingEvents = true;
@@ -374,7 +406,65 @@ namespace YoutubeDL_GUI
             Invoke(new Action(() =>
             {
                 Show();
+                IsUpdating = false;
             }));
+        }
+
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            ResetInterface(new YtdConfig());
+            lblVidCount.Text = "0 videos loaded";
+            txtOut.Clear();
+            vidTitles.Clear();
+            vidLinks.Clear();
+        }
+
+        private void ResetInterface(YtdConfig config)
+        {
+            txtLink.Text = config.Link;
+            chkTitle.Checked = config.IsRegexChecked;
+            txtTitle.Text = config.Regex;
+            cmbQuality.SelectedIndex = config.QualityIndex;
+
+            chkNotPlaylist.Checked = config.IsNotPlaylist;
+            chkDownloadLink.Checked = config.IsShowDownloadLinks;
+
+            chkPlaylistStart.Checked = config.IsPlaylistStart;
+            txtPlaylistStart.Value = config.PlaylistStart;
+            txtPlaylistStart.Enabled = chkPlaylistStart.Checked;
+
+            chkPlaylistEnd.Checked = config.IsPlaylistEnd;
+            txtPlaylistEnd.Value = config.PlaylistEnd;
+            txtPlaylistEnd.Enabled = chkPlaylistEnd.Checked;
+
+            chkCustomArgs.Checked = config.IsCustomArgs;
+            txtCustomArgs.Text = config.CustomArgs;
+            txtCustomArgs.Enabled = chkCustomArgs.Checked;
+
+            chkExternalApp.Checked = config.IsExternalApp;
+            txtExternalApp.Text = config.ExternalAppLocation;
+            txtExternalApp.Enabled = chkExternalApp.Checked;
+            txtExternalAppArgs.Text = config.ExternalAppArgs;
+            txtExternalAppArgs.Enabled = chkExternalApp.Checked;
+
+            chkNumber.Checked = config.IsAutoNumberingStart;
+            chkNumber.Enabled = chkExternalApp.Checked;
+            txtNumber.Value = config.AutoNumberStart;
+            txtNumber.Enabled = chkNumber.Checked && chkNumber.Enabled;
+            txtPad.Value = config.AutoNumberPadding;
+            txtPad.Enabled = chkNumber.Checked && chkNumber.Enabled;
+
+            if (config.ExternalAppLocation == (new YtdConfig()).ExternalAppLocation)
+            {
+                if (Environment.Is64BitOperatingSystem)
+                {
+                    txtExternalApp.Text = "C:\\Program Files (x86)\\Internet Download Manager\\idman.exe";
+                }
+                else
+                {
+                    txtExternalApp.Text = "C:\\Program Files\\Internet Download Manager\\idman.exe";
+                }
+            }
         }
     }
 }

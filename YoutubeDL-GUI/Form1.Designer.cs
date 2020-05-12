@@ -62,6 +62,7 @@
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.btnCopyToClipboard = new System.Windows.Forms.Button();
             this.btnUpdateYoutubeDL = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.txtNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlaylistStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlaylistEnd)).BeginInit();
@@ -479,11 +480,24 @@
             this.btnUpdateYoutubeDL.UseVisualStyleBackColor = true;
             this.btnUpdateYoutubeDL.Click += new System.EventHandler(this.btnUpdateYoutubeDL_Click);
             // 
+            // btnReset
+            // 
+            this.btnReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReset.AutoSize = true;
+            this.btnReset.Location = new System.Drawing.Point(228, 370);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 27;
+            this.btnReset.Text = "Reset All";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // mainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(526, 632);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnUpdateYoutubeDL);
             this.Controls.Add(this.btnCopyToClipboard);
             this.Controls.Add(this.txtCustomArgs);
@@ -554,6 +568,7 @@
         private System.Windows.Forms.Button btnUpdateYoutubeDL;
         private System.Windows.Forms.NumericUpDown txtPad;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnReset;
     }
 }
 
