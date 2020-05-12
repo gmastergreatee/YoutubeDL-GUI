@@ -222,7 +222,6 @@ namespace YoutubeDL_GUI
             btnGetData.Text = "Get Data";
             proc = null;
             Counter = 0;
-            lblVidCount.Text = vidLinks.Count + " videos loaded";
         }
 
         private void ytdExit(object sender, EventArgs e)
@@ -259,6 +258,10 @@ namespace YoutubeDL_GUI
                 if (Counter % 2 == 1 && chkCustomArgs.Checked == false)
                 {
                     vidLinks.Add(e.Data.Replace("\r\n", "").Replace("\n", ""));
+                    Invoke(new Action(() =>
+                    {
+                        lblVidCount.Text = vidLinks.Count + " videos loaded";
+                    }));
                 }
 
                 if (Counter % 2 == 0 || chkDownloadLink.Checked)
@@ -338,6 +341,7 @@ namespace YoutubeDL_GUI
 
         private void btnSend_Click(object sender, EventArgs e)
         {
+            var invalidChars = Path.GetInvalidFileNameChars().ToList();
             var counter = txtNumber.Value;
             if (vidLinks.Count <= 0)
             {
@@ -355,10 +359,16 @@ namespace YoutubeDL_GUI
             for (var i = 0; i < vidLinks.Count; i++)
             {
                 var counterPad = chkNumber.Checked ? counter.ToString().PadLeft(maxPadding, '0') + ". " : "";
+                var title = vidTitles[i];
+                foreach (var c in invalidChars)
+                    title = title.Replace(c.ToString(), "");
+
+                if (string.IsNullOrWhiteSpace(title))
+                    title = "Invalid Name";
 
                 var _p = new Process();
                 _p.StartInfo.FileName = txtExternalApp.Text;
-                _p.StartInfo.Arguments = txtExternalAppArgs.Text.Replace("{url}", vidLinks[i]).Replace("{file}", counterPad + (vidTitles.Count > i ? vidTitles[i] : ""));
+                _p.StartInfo.Arguments = txtExternalAppArgs.Text.Replace("{url}", vidLinks[i]).Replace("{file}", counterPad + (vidTitles.Count > i ? title : ""));
                 _p.Start();
                 counter++;
                 System.Threading.Thread.Sleep(500);

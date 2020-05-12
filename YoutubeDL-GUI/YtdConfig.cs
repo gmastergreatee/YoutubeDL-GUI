@@ -10,7 +10,7 @@ namespace YoutubeDL_GUI
     {
         public string Link { get; set; } = "https://www.youtube.com/playlist?list=PLwLSw1_eDZl0hI_XedalMVIvHcVLOouiv";
         public bool IsRegexChecked { get; set; } = false;
-        public string Regex { get; set; } = " - Episode \\d{1,2}";
+        public string Regex { get; set; } = "- Episode \\d{1,2} \\[English Sub\\]$";
         public int QualityIndex { get; set; } = 1;
 
         public bool IsNotPlaylist { get; set; } = false;
