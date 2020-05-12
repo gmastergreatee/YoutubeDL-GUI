@@ -38,7 +38,7 @@ namespace YoutubeDL_GUI
 
         private void chkTitle_CheckedChanged(object sender, EventArgs e)
         {
-            txtTitle.Enabled = chkTitle.Checked;
+            txtRegex.Enabled = chkRegex.Checked;
         }
 
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
@@ -49,8 +49,8 @@ namespace YoutubeDL_GUI
                 {
                     Link = txtLink.Text.Trim(),
 
-                    IsRegexChecked = chkTitle.Checked,
-                    Regex = txtTitle.Text.Trim(),
+                    IsRegexChecked = chkRegex.Checked,
+                    Regex = txtRegex.Text.Trim(),
                     QualityIndex = cmbQuality.SelectedIndex,
 
                     IsPlaylistStart = chkPlaylistStart.Checked,
@@ -69,8 +69,8 @@ namespace YoutubeDL_GUI
                     ExternalAppLocation = txtExternalApp.Text.Trim(),
                     ExternalAppArgs = txtExternalAppArgs.Text.Trim(),
 
-                    IsAutoNumberingStart = chkNumber.Checked,
-                    AutoNumberStart = (int)txtNumber.Value,
+                    IsAutoNumberingStart = chkAutoNumber.Checked,
+                    AutoNumberStart = (int)txtAutoNumber.Value,
                     AutoNumberPadding = (int)txtPad.Value,
                 };
                 configSaver.SaveConfig(config);
@@ -79,7 +79,7 @@ namespace YoutubeDL_GUI
             catch { }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnGetData_Click(object sender, EventArgs e)
         {
             if (IsFetchingData)
             {
@@ -127,9 +127,9 @@ namespace YoutubeDL_GUI
                 {
                     args += " -f " + qualities[cmbQuality.SelectedIndex];
                 }
-                if (chkTitle.Checked && string.IsNullOrWhiteSpace(txtTitle.Text) == false)
+                if (chkRegex.Checked && string.IsNullOrWhiteSpace(txtRegex.Text) == false)
                 {
-                    args += " --match-title \"" + txtTitle.Text.Trim() + "\"";
+                    args += " --match-title \"" + txtRegex.Text.Trim() + "\"";
                 }
                 if (chkNotPlaylist.Checked)
                 {
@@ -160,14 +160,14 @@ namespace YoutubeDL_GUI
             btnGetData.Text = "Stop";
 
             txtLink.Enabled = false;
-            txtTitle.Enabled = false;
-            chkTitle.Enabled = false;
+            txtRegex.Enabled = false;
+            chkRegex.Enabled = false;
 
             chkNotPlaylist.Enabled = false;
             chkDownloadLink.Enabled = false;
             chkPlaylistStart.Enabled = false;
             chkPlaylistEnd.Enabled = false;
-            chkNumber.Enabled = false;
+            chkAutoNumber.Enabled = false;
             chkExternalApp.Enabled = false;
             btnSend.Enabled = false;
             txtPlaylistStart.Enabled = false;
@@ -175,7 +175,7 @@ namespace YoutubeDL_GUI
             txtExternalApp.Enabled = false;
             txtExternalAppArgs.Enabled = false;
             txtPad.Enabled = false;
-            txtNumber.Enabled = false;
+            txtAutoNumber.Enabled = false;
 
             cmbQuality.Enabled = false;
             btnReset.Enabled = false;
@@ -197,24 +197,23 @@ namespace YoutubeDL_GUI
             txtOut.AppendText("\r\nOperation completed\r\n\r\n");
             IsFetchingData = false;
             txtLink.Enabled = true;
-            chkTitle.Enabled = true;
-            txtTitle.Enabled = chkTitle.Checked;
+            chkRegex.Enabled = true;
+            txtRegex.Enabled = chkRegex.Checked;
 
             chkNotPlaylist.Enabled = true;
             chkDownloadLink.Enabled = true;
             chkPlaylistStart.Enabled = true;
             chkPlaylistEnd.Enabled = true;
-            chkNumber.Enabled = true;
+            chkAutoNumber.Enabled = true;
             chkExternalApp.Enabled = true;
             btnSend.Enabled = chkExternalApp.Checked;
             txtPlaylistStart.Enabled = chkPlaylistStart.Checked;
             txtPlaylistEnd.Enabled = chkPlaylistEnd.Checked;
             txtExternalApp.Enabled = chkExternalApp.Checked;
             txtExternalAppArgs.Enabled = chkExternalApp.Checked;
-            txtPad.Enabled = chkExternalApp.Checked && chkNumber.Checked && chkNumber.Enabled;
-            txtNumber.Enabled = chkExternalApp.Checked && chkNumber.Checked && chkNumber.Enabled;
+            txtPad.Enabled = chkExternalApp.Checked && chkAutoNumber.Checked && chkAutoNumber.Enabled;
+            txtAutoNumber.Enabled = chkExternalApp.Checked && chkAutoNumber.Checked && chkAutoNumber.Enabled;
 
-            cmbQuality.Enabled = true;
             btnReset.Enabled = true;
             btnUpdateYoutubeDL.Enabled = true;
             btnCopyToClipboard.Enabled = true;
@@ -288,7 +287,7 @@ namespace YoutubeDL_GUI
             }));
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void mainWindow_Load(object sender, EventArgs e)
         {
             if (!File.Exists("youtube-dl.exe"))
             {
@@ -308,10 +307,10 @@ namespace YoutubeDL_GUI
             ResetInterface(config);
         }
 
-        private void chkNumber_CheckedChanged(object sender, EventArgs e)
+        private void chkAutoNumber_CheckedChanged(object sender, EventArgs e)
         {
-            txtNumber.Enabled = chkNumber.Checked;
-            txtPad.Enabled = chkNumber.Checked;
+            txtAutoNumber.Enabled = chkAutoNumber.Checked;
+            txtPad.Enabled = chkAutoNumber.Checked;
         }
 
         private void chkPlaylistStart_CheckedChanged(object sender, EventArgs e)
@@ -324,7 +323,7 @@ namespace YoutubeDL_GUI
             txtPlaylistEnd.Enabled = chkPlaylistEnd.Checked;
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        private void btnClear_Click(object sender, EventArgs e)
         {
             txtOut.Clear();
         }
@@ -334,15 +333,15 @@ namespace YoutubeDL_GUI
             txtExternalApp.Enabled = chkExternalApp.Checked;
             txtExternalAppArgs.Enabled = chkExternalApp.Checked;
             btnSend.Enabled = chkExternalApp.Checked;
-            chkNumber.Enabled = chkExternalApp.Checked;
-            txtNumber.Enabled = chkExternalApp.Checked && chkNumber.Checked;
-            txtPad.Enabled = chkExternalApp.Checked && chkNumber.Checked;
+            chkAutoNumber.Enabled = chkExternalApp.Checked;
+            txtAutoNumber.Enabled = chkExternalApp.Checked && chkAutoNumber.Checked;
+            txtPad.Enabled = chkExternalApp.Checked && chkAutoNumber.Checked;
         }
 
         private void btnSend_Click(object sender, EventArgs e)
         {
             var invalidChars = Path.GetInvalidFileNameChars().ToList();
-            var counter = txtNumber.Value;
+            var counter = txtAutoNumber.Value;
             if (vidLinks.Count <= 0)
             {
                 MessageBox.Show("No videos added yet", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -358,7 +357,7 @@ namespace YoutubeDL_GUI
             var maxPadding = (int)txtPad.Value;
             for (var i = 0; i < vidLinks.Count; i++)
             {
-                var counterPad = chkNumber.Checked ? counter.ToString().PadLeft(maxPadding, '0') + ". " : "";
+                var counterPad = chkAutoNumber.Checked ? counter.ToString().PadLeft(maxPadding, '0') + ". " : "";
                 var title = vidTitles[i];
                 foreach (var c in invalidChars)
                     title = title.Replace(c.ToString(), "");
@@ -432,8 +431,8 @@ namespace YoutubeDL_GUI
         private void ResetInterface(YtdConfig config)
         {
             txtLink.Text = config.Link;
-            chkTitle.Checked = config.IsRegexChecked;
-            txtTitle.Text = config.Regex;
+            chkRegex.Checked = config.IsRegexChecked;
+            txtRegex.Text = config.Regex;
             cmbQuality.SelectedIndex = config.QualityIndex;
 
             chkNotPlaylist.Checked = config.IsNotPlaylist;
@@ -457,12 +456,12 @@ namespace YoutubeDL_GUI
             txtExternalAppArgs.Text = config.ExternalAppArgs;
             txtExternalAppArgs.Enabled = chkExternalApp.Checked;
 
-            chkNumber.Checked = config.IsAutoNumberingStart;
-            chkNumber.Enabled = chkExternalApp.Checked;
-            txtNumber.Value = config.AutoNumberStart;
-            txtNumber.Enabled = chkNumber.Checked && chkNumber.Enabled;
+            chkAutoNumber.Checked = config.IsAutoNumberingStart;
+            chkAutoNumber.Enabled = chkExternalApp.Checked;
+            txtAutoNumber.Value = config.AutoNumberStart;
+            txtAutoNumber.Enabled = chkAutoNumber.Checked && chkAutoNumber.Enabled;
             txtPad.Value = config.AutoNumberPadding;
-            txtPad.Enabled = chkNumber.Checked && chkNumber.Enabled;
+            txtPad.Enabled = chkAutoNumber.Checked && chkAutoNumber.Enabled;
 
             if (config.ExternalAppLocation == (new YtdConfig()).ExternalAppLocation)
             {

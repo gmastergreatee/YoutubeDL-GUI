@@ -32,11 +32,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtLink = new System.Windows.Forms.TextBox();
             this.txtOut = new System.Windows.Forms.TextBox();
-            this.txtTitle = new System.Windows.Forms.TextBox();
-            this.chkTitle = new System.Windows.Forms.CheckBox();
+            this.txtRegex = new System.Windows.Forms.TextBox();
+            this.chkRegex = new System.Windows.Forms.CheckBox();
             this.btnGetData = new System.Windows.Forms.Button();
-            this.txtNumber = new System.Windows.Forms.NumericUpDown();
-            this.chkNumber = new System.Windows.Forms.CheckBox();
+            this.txtAutoNumber = new System.Windows.Forms.NumericUpDown();
+            this.chkAutoNumber = new System.Windows.Forms.CheckBox();
             this.chkPlaylistStart = new System.Windows.Forms.CheckBox();
             this.txtPlaylistStart = new System.Windows.Forms.NumericUpDown();
             this.chkPlaylistEnd = new System.Windows.Forms.CheckBox();
@@ -44,7 +44,7 @@
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.chkDownloadLink = new System.Windows.Forms.CheckBox();
             this.chkNotPlaylist = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.txtPad = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
@@ -63,7 +63,7 @@
             this.btnCopyToClipboard = new System.Windows.Forms.Button();
             this.btnUpdateYoutubeDL = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.txtNumber)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtAutoNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlaylistStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlaylistEnd)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -105,28 +105,28 @@
             this.txtOut.TabIndex = 2;
             this.txtOut.WordWrap = false;
             // 
-            // txtTitle
+            // txtRegex
             // 
-            this.txtTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtRegex.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTitle.Enabled = false;
-            this.txtTitle.Location = new System.Drawing.Point(146, 38);
-            this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(368, 20);
-            this.txtTitle.TabIndex = 3;
-            this.txtTitle.Text = "- Episode \\d{1,2}";
+            this.txtRegex.Enabled = false;
+            this.txtRegex.Location = new System.Drawing.Point(146, 38);
+            this.txtRegex.Name = "txtRegex";
+            this.txtRegex.Size = new System.Drawing.Size(368, 20);
+            this.txtRegex.TabIndex = 3;
+            this.txtRegex.Text = "- Episode \\d{1,2}";
             // 
-            // chkTitle
+            // chkRegex
             // 
-            this.chkTitle.AutoSize = true;
-            this.chkTitle.Location = new System.Drawing.Point(15, 41);
-            this.chkTitle.Name = "chkTitle";
-            this.chkTitle.Size = new System.Drawing.Size(125, 17);
-            this.chkTitle.TabIndex = 5;
-            this.chkTitle.Text = "Match-Title (REGEX)";
-            this.toolTip.SetToolTip(this.chkTitle, "--match-title REGEX");
-            this.chkTitle.UseVisualStyleBackColor = true;
-            this.chkTitle.CheckedChanged += new System.EventHandler(this.chkTitle_CheckedChanged);
+            this.chkRegex.AutoSize = true;
+            this.chkRegex.Location = new System.Drawing.Point(15, 41);
+            this.chkRegex.Name = "chkRegex";
+            this.chkRegex.Size = new System.Drawing.Size(125, 17);
+            this.chkRegex.TabIndex = 5;
+            this.chkRegex.Text = "Match-Title (REGEX)";
+            this.toolTip.SetToolTip(this.chkRegex, "--match-title REGEX");
+            this.chkRegex.UseVisualStyleBackColor = true;
+            this.chkRegex.CheckedChanged += new System.EventHandler(this.chkTitle_CheckedChanged);
             // 
             // btnGetData
             // 
@@ -137,47 +137,47 @@
             this.btnGetData.TabIndex = 6;
             this.btnGetData.Text = "Get Data";
             this.btnGetData.UseVisualStyleBackColor = true;
-            this.btnGetData.Click += new System.EventHandler(this.button1_Click);
+            this.btnGetData.Click += new System.EventHandler(this.btnGetData_Click);
             // 
-            // txtNumber
+            // txtAutoNumber
             // 
-            this.txtNumber.Enabled = false;
-            this.txtNumber.Location = new System.Drawing.Point(149, 74);
-            this.txtNumber.Maximum = new decimal(new int[] {
+            this.txtAutoNumber.Enabled = false;
+            this.txtAutoNumber.Location = new System.Drawing.Point(149, 74);
+            this.txtAutoNumber.Maximum = new decimal(new int[] {
             99999,
             0,
             0,
             0});
-            this.txtNumber.Minimum = new decimal(new int[] {
+            this.txtAutoNumber.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.txtNumber.Name = "txtNumber";
-            this.txtNumber.Size = new System.Drawing.Size(120, 20);
-            this.txtNumber.TabIndex = 8;
-            this.txtNumber.Value = new decimal(new int[] {
+            this.txtAutoNumber.Name = "txtAutoNumber";
+            this.txtAutoNumber.Size = new System.Drawing.Size(120, 20);
+            this.txtAutoNumber.TabIndex = 8;
+            this.txtAutoNumber.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             // 
-            // chkNumber
+            // chkAutoNumber
             // 
-            this.chkNumber.AutoSize = true;
-            this.chkNumber.Enabled = false;
-            this.chkNumber.Location = new System.Drawing.Point(7, 75);
-            this.chkNumber.Name = "chkNumber";
-            this.chkNumber.Size = new System.Drawing.Size(127, 17);
-            this.chkNumber.TabIndex = 9;
-            this.chkNumber.Text = "Auto-Numbering Start";
-            this.chkNumber.UseVisualStyleBackColor = true;
-            this.chkNumber.CheckedChanged += new System.EventHandler(this.chkNumber_CheckedChanged);
+            this.chkAutoNumber.AutoSize = true;
+            this.chkAutoNumber.Enabled = false;
+            this.chkAutoNumber.Location = new System.Drawing.Point(7, 75);
+            this.chkAutoNumber.Name = "chkAutoNumber";
+            this.chkAutoNumber.Size = new System.Drawing.Size(127, 17);
+            this.chkAutoNumber.TabIndex = 9;
+            this.chkAutoNumber.Text = "Auto-Numbering Start";
+            this.chkAutoNumber.UseVisualStyleBackColor = true;
+            this.chkAutoNumber.CheckedChanged += new System.EventHandler(this.chkAutoNumber_CheckedChanged);
             // 
             // chkPlaylistStart
             // 
             this.chkPlaylistStart.AutoSize = true;
-            this.chkPlaylistStart.Location = new System.Drawing.Point(6, 65);
+            this.chkPlaylistStart.Location = new System.Drawing.Point(6, 43);
             this.chkPlaylistStart.Name = "chkPlaylistStart";
             this.chkPlaylistStart.Size = new System.Drawing.Size(83, 17);
             this.chkPlaylistStart.TabIndex = 11;
@@ -189,7 +189,7 @@
             // txtPlaylistStart
             // 
             this.txtPlaylistStart.Enabled = false;
-            this.txtPlaylistStart.Location = new System.Drawing.Point(137, 64);
+            this.txtPlaylistStart.Location = new System.Drawing.Point(95, 41);
             this.txtPlaylistStart.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -201,7 +201,7 @@
             0,
             0});
             this.txtPlaylistStart.Name = "txtPlaylistStart";
-            this.txtPlaylistStart.Size = new System.Drawing.Size(120, 20);
+            this.txtPlaylistStart.Size = new System.Drawing.Size(57, 20);
             this.txtPlaylistStart.TabIndex = 10;
             this.txtPlaylistStart.Value = new decimal(new int[] {
             1,
@@ -211,8 +211,9 @@
             // 
             // chkPlaylistEnd
             // 
+            this.chkPlaylistEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkPlaylistEnd.AutoSize = true;
-            this.chkPlaylistEnd.Location = new System.Drawing.Point(6, 91);
+            this.chkPlaylistEnd.Location = new System.Drawing.Point(294, 42);
             this.chkPlaylistEnd.Name = "chkPlaylistEnd";
             this.chkPlaylistEnd.Size = new System.Drawing.Size(80, 17);
             this.chkPlaylistEnd.TabIndex = 13;
@@ -223,8 +224,9 @@
             // 
             // txtPlaylistEnd
             // 
+            this.txtPlaylistEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPlaylistEnd.Enabled = false;
-            this.txtPlaylistEnd.Location = new System.Drawing.Point(137, 90);
+            this.txtPlaylistEnd.Location = new System.Drawing.Point(380, 41);
             this.txtPlaylistEnd.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -236,7 +238,7 @@
             0,
             0});
             this.txtPlaylistEnd.Name = "txtPlaylistEnd";
-            this.txtPlaylistEnd.Size = new System.Drawing.Size(120, 20);
+            this.txtPlaylistEnd.Size = new System.Drawing.Size(57, 20);
             this.txtPlaylistEnd.TabIndex = 12;
             this.txtPlaylistEnd.Value = new decimal(new int[] {
             1,
@@ -259,8 +261,9 @@
             // 
             // chkDownloadLink
             // 
+            this.chkDownloadLink.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkDownloadLink.AutoSize = true;
-            this.chkDownloadLink.Location = new System.Drawing.Point(6, 42);
+            this.chkDownloadLink.Location = new System.Drawing.Point(294, 19);
             this.chkDownloadLink.Name = "chkDownloadLink";
             this.chkDownloadLink.Size = new System.Drawing.Size(132, 17);
             this.chkDownloadLink.TabIndex = 16;
@@ -278,16 +281,16 @@
             this.toolTip.SetToolTip(this.chkNotPlaylist, "--no-playlist");
             this.chkNotPlaylist.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnClear
             // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(439, 370);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Clear Output";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClear.Location = new System.Drawing.Point(439, 370);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 18;
+            this.btnClear.Text = "Clear Output";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // groupBox3
             // 
@@ -295,9 +298,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.txtPad);
             this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.chkNumber);
+            this.groupBox3.Controls.Add(this.chkAutoNumber);
             this.groupBox3.Controls.Add(this.btnSend);
-            this.groupBox3.Controls.Add(this.txtNumber);
+            this.groupBox3.Controls.Add(this.txtAutoNumber);
             this.groupBox3.Controls.Add(this.lblVidCount);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.txtExternalAppArgs);
@@ -426,9 +429,9 @@
             this.groupBox1.Controls.Add(this.txtPlaylistEnd);
             this.groupBox1.Controls.Add(this.chkDownloadLink);
             this.groupBox1.Controls.Add(this.chkPlaylistEnd);
-            this.groupBox1.Location = new System.Drawing.Point(15, 93);
+            this.groupBox1.Location = new System.Drawing.Point(15, 144);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(499, 118);
+            this.groupBox1.Size = new System.Drawing.Size(499, 67);
             this.groupBox1.TabIndex = 22;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Queries";
@@ -506,19 +509,19 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.cmbQuality);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnGetData);
-            this.Controls.Add(this.chkTitle);
-            this.Controls.Add(this.txtTitle);
+            this.Controls.Add(this.chkRegex);
+            this.Controls.Add(this.txtRegex);
             this.Controls.Add(this.txtLink);
             this.Controls.Add(this.label1);
             this.MinimumSize = new System.Drawing.Size(542, 624);
             this.Name = "mainWindow";
             this.Text = "YoutubeDL GUI";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.txtNumber)).EndInit();
+            this.Load += new System.EventHandler(this.mainWindow_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.txtAutoNumber)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlaylistStart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlaylistEnd)).EndInit();
             this.groupBox2.ResumeLayout(false);
@@ -538,11 +541,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtLink;
         private System.Windows.Forms.TextBox txtOut;
-        private System.Windows.Forms.TextBox txtTitle;
-        private System.Windows.Forms.CheckBox chkTitle;
+        private System.Windows.Forms.TextBox txtRegex;
+        private System.Windows.Forms.CheckBox chkRegex;
         private System.Windows.Forms.Button btnGetData;
-        private System.Windows.Forms.NumericUpDown txtNumber;
-        private System.Windows.Forms.CheckBox chkNumber;
+        private System.Windows.Forms.NumericUpDown txtAutoNumber;
+        private System.Windows.Forms.CheckBox chkAutoNumber;
         private System.Windows.Forms.CheckBox chkPlaylistStart;
         private System.Windows.Forms.NumericUpDown txtPlaylistStart;
         private System.Windows.Forms.CheckBox chkPlaylistEnd;
@@ -550,7 +553,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.CheckBox chkDownloadLink;
         private System.Windows.Forms.CheckBox chkNotPlaylist;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.CheckBox chkExternalApp;
         private System.Windows.Forms.TextBox txtExternalApp;
