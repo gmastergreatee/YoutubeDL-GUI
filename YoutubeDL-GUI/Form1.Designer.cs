@@ -370,7 +370,7 @@
             this.txtExternalAppArgs.Name = "txtExternalAppArgs";
             this.txtExternalAppArgs.Size = new System.Drawing.Size(347, 20);
             this.txtExternalAppArgs.TabIndex = 2;
-            this.txtExternalAppArgs.Text = "/d \"{url}\" /f \"{file}.mp4\"";
+            this.txtExternalAppArgs.Text = "/a /d \"{url}\" /f \"{file}.mp4\"";
             // 
             // txtExternalApp
             // 

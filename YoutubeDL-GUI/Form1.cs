@@ -332,6 +332,8 @@ namespace YoutubeDL_GUI
                 counter++;
                 System.Threading.Thread.Sleep(500);
             }
+
+            txtOut.AppendText("Sent " + vidLinks.Count + " links to external app.\r\n\r\n");
         }
 
         private void chkCustomArgs_CheckedChanged(object sender, EventArgs e)
