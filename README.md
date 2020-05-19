@@ -3,6 +3,8 @@ GUI wrapper for youtube-dl (Windows only for now)
 
 ![Window](https://raw.githubusercontent.com/gmastergreatee/YoutubeDL-GUI/master/ui.png)
 
+Download [here](https://github.com/gmastergreatee/YoutubeDL-GUI/releases)
+
 ##### NOTE : If "Custom Args" is checked, none of the other filters will work, neither will the links be copied to clipboard nor will sending links to the external app.
 
 Feel free to request for more features or send a pull request
