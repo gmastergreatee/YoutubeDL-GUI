@@ -1,4 +1,7 @@
 # YoutubeDL-GUI
+
+[![PayPal Donate](https://img.shields.io/badge/donate-PayPal-orange.svg?style=flat-square&logo=paypal)](https://www.paypal.me/RajarshiVaidya)
+
 GUI wrapper for youtube-dl (Windows only for now)
 
 ![Window](https://raw.githubusercontent.com/gmastergreatee/YoutubeDL-GUI/master/ui.png)
