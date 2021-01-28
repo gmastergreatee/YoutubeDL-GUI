@@ -13,6 +13,9 @@ Download [here](https://github.com/gmastergreatee/YoutubeDL-GUI/releases)
 
 Feel free to request for more features or send a pull request
 
+#### Extras
+If you wanna download videos from viki, use [this](https://github.com/gmastergreatee/YoutubeDL-GUI/raw/master/Viki%20Audio%20Link%20extractor%20%26%20Merger.xlsx) excel file to generate audio stream links through your downloader and also generate batch script for combining video+audio+subtitle streams(which requires ffmpeg to merge them)
+
 ## Credits
 - [gmastergreatee](https://github.com/gmastergreatee)
 - Big thanks to [youtube-dl](https://github.com/ytdl-org/youtube-dl) contributors for their awesome work, u r great!
