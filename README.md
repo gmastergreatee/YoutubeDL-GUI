@@ -4,7 +4,7 @@
 
 GUI wrapper for youtube-dl (Windows only for now)
 
-![Window](https://raw.githubusercontent.com/gmastergreatee/YoutubeDL-GUI/master/ui.png)
+![Window](https://raw.githubusercontent.com/gmastergreatee/YoutubeDL-GUI/master/ui-2021-02-09.png)
 
 ##### NOTE : Be sure to hit the "Update" button after downloading the app. The bundled version of *"youtube-dl.exe"* may be older than the current version.
 Download [here](https://github.com/gmastergreatee/YoutubeDL-GUI/releases)
