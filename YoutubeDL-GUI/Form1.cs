@@ -215,6 +215,7 @@ namespace YoutubeDL_GUI
             txtLink.Enabled = true;
             txtUsername.Enabled = true;
             txtPassword.Enabled = true;
+            cmbQuality.Enabled = true;
             chkRegex.Enabled = true;
             txtRegex.Enabled = chkRegex.Checked;
 
