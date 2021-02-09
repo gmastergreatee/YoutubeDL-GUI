@@ -51,6 +51,7 @@ namespace YoutubeDL_GUI
 
                     IsRegexChecked = chkRegex.Checked,
                     Regex = txtRegex.Text.Trim(),
+                    Username = txtUsername.Text.Trim(),
                     QualityIndex = cmbQuality.SelectedIndex,
 
                     IsPlaylistStart = chkPlaylistStart.Checked,
@@ -120,9 +121,22 @@ namespace YoutubeDL_GUI
             proc.StartInfo.FileName = "youtube-dl.exe";
 
             var args = "";
+            var loginArgs = "";
+            if (txtUsername.Text.Trim().Length > 0)
+            {
+                loginArgs += " -u " + txtUsername.Text.Trim();
+            }
+            if (txtPassword.Text.Trim().Length > 0)
+            {
+                loginArgs += " -p " + txtPassword.Text.Trim();
+            }
             if (!chkCustomArgs.Checked)
             {
                 args = "-e";
+                if (loginArgs.Length > 0)
+                {
+                    args += loginArgs;
+                }
                 if (cmbQuality.SelectedIndex > 0)
                 {
                     args += " -f " + qualities[cmbQuality.SelectedIndex];
@@ -147,7 +161,7 @@ namespace YoutubeDL_GUI
             }
             else
             {
-                proc.StartInfo.Arguments = txtCustomArgs.Text.Trim().Replace("{link}", txtLink.Text.Trim());
+                proc.StartInfo.Arguments = (loginArgs.Length > 0 ? loginArgs + " " : "") + txtCustomArgs.Text.Trim().Replace("{link}", txtLink.Text.Trim());
             }
             proc.StartInfo.CreateNoWindow = true;
             proc.StartInfo.UseShellExecute = false;
@@ -161,6 +175,8 @@ namespace YoutubeDL_GUI
 
             txtLink.Enabled = false;
             txtRegex.Enabled = false;
+            txtUsername.Enabled = false;
+            txtPassword.Enabled = false;
             chkRegex.Enabled = false;
 
             chkNotPlaylist.Enabled = false;
@@ -197,6 +213,8 @@ namespace YoutubeDL_GUI
             txtOut.AppendText("\r\nOperation completed\r\n\r\n");
             IsFetchingData = false;
             txtLink.Enabled = true;
+            txtUsername.Enabled = true;
+            txtPassword.Enabled = true;
             chkRegex.Enabled = true;
             txtRegex.Enabled = chkRegex.Checked;
 
@@ -295,13 +313,13 @@ namespace YoutubeDL_GUI
                 Environment.Exit(0);
             }
 
-            cmbQuality.Items.Add("---");
-            cmbQuality.Items.Add("Best");
-            cmbQuality.Items.Add("1080p");
-            cmbQuality.Items.Add("720p");
-            cmbQuality.Items.Add("480p");
-            cmbQuality.Items.Add("360p");
-            cmbQuality.Items.Add("144p");
+            cmbQuality.Items.Add("BEST AVAILABLE");
+            cmbQuality.Items.Add("Best MP4");
+            cmbQuality.Items.Add("1080p MP4");
+            cmbQuality.Items.Add("720p MP4");
+            cmbQuality.Items.Add("480p MP4");
+            cmbQuality.Items.Add("360p MP4");
+            cmbQuality.Items.Add("144p MP4");
 
             var config = configSaver.GetConfig();
             ResetInterface(config);
@@ -433,6 +451,8 @@ namespace YoutubeDL_GUI
             txtLink.Text = config.Link;
             chkRegex.Checked = config.IsRegexChecked;
             txtRegex.Text = config.Regex;
+            txtUsername.Text = config.Username;
+            txtPassword.Text = "";
             cmbQuality.SelectedIndex = config.QualityIndex;
 
             chkNotPlaylist.Checked = config.IsNotPlaylist;

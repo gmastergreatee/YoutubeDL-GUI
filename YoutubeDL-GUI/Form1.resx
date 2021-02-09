@@ -123,4 +123,15 @@
   <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <metadata name="toolTip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <data name="txtCustomArgs.ToolTip" xml:space="preserve">
+    <value>--write-auto-sub : Youtube ONLY
+--write-sub : All others
+&gt; asd.txt : Console output to file
+
+NOTE:-
+If USERNAME or PASSWORD is entered, then will related commands will be auto-prefixed to the current args</value>
+  </data>
 </root>

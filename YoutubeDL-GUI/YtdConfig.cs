@@ -32,5 +32,7 @@ namespace YoutubeDL_GUI
         public bool IsAutoNumberingStart { get; set; } = false;
         public int AutoNumberStart { get; set; } = 1;
         public int AutoNumberPadding { get; set; } = 1;
+
+        public string Username { get; set; } = "";
     }
 }

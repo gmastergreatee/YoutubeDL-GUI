@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainWindow));
             this.label1 = new System.Windows.Forms.Label();
             this.txtLink = new System.Windows.Forms.TextBox();
             this.txtOut = new System.Windows.Forms.TextBox();
@@ -63,6 +64,10 @@
             this.btnCopyToClipboard = new System.Windows.Forms.Button();
             this.btnUpdateYoutubeDL = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.txtPassword = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.txtAutoNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlaylistStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPlaylistEnd)).BeginInit();
@@ -131,7 +136,7 @@
             // btnGetData
             // 
             this.btnGetData.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGetData.Location = new System.Drawing.Point(439, 64);
+            this.btnGetData.Location = new System.Drawing.Point(439, 90);
             this.btnGetData.Name = "btnGetData";
             this.btnGetData.Size = new System.Drawing.Size(75, 23);
             this.btnGetData.TabIndex = 6;
@@ -248,11 +253,10 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.txtOut);
-            this.groupBox2.Location = new System.Drawing.Point(12, 399);
+            this.groupBox2.Location = new System.Drawing.Point(12, 374);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(502, 221);
             this.groupBox2.TabIndex = 15;
@@ -283,8 +287,8 @@
             // 
             // btnClear
             // 
-            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClear.Location = new System.Drawing.Point(439, 370);
+            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClear.Location = new System.Drawing.Point(439, 345);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 18;
@@ -294,7 +298,7 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.Controls.Add(this.txtPad);
             this.groupBox3.Controls.Add(this.label4);
@@ -306,7 +310,7 @@
             this.groupBox3.Controls.Add(this.txtExternalAppArgs);
             this.groupBox3.Controls.Add(this.txtExternalApp);
             this.groupBox3.Controls.Add(this.chkExternalApp);
-            this.groupBox3.Location = new System.Drawing.Point(12, 243);
+            this.groupBox3.Location = new System.Drawing.Point(12, 218);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(502, 121);
             this.groupBox3.TabIndex = 19;
@@ -401,11 +405,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(80, 69);
+            this.label3.Location = new System.Drawing.Point(101, 95);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 13);
+            this.label3.Size = new System.Drawing.Size(39, 13);
             this.label3.TabIndex = 20;
-            this.label3.Text = "Max quality";
+            this.label3.Text = "Quality";
             this.toolTip.SetToolTip(this.label3, "-f \"best[height<=1080]+best[ext=mp4]\"");
             // 
             // cmbQuality
@@ -414,14 +418,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cmbQuality.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbQuality.FormattingEnabled = true;
-            this.cmbQuality.Location = new System.Drawing.Point(146, 66);
+            this.cmbQuality.Location = new System.Drawing.Point(146, 92);
             this.cmbQuality.Name = "cmbQuality";
             this.cmbQuality.Size = new System.Drawing.Size(287, 21);
             this.cmbQuality.TabIndex = 21;
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.chkNotPlaylist);
             this.groupBox1.Controls.Add(this.chkPlaylistStart);
@@ -429,7 +433,7 @@
             this.groupBox1.Controls.Add(this.txtPlaylistEnd);
             this.groupBox1.Controls.Add(this.chkDownloadLink);
             this.groupBox1.Controls.Add(this.chkPlaylistEnd);
-            this.groupBox1.Location = new System.Drawing.Point(15, 144);
+            this.groupBox1.Location = new System.Drawing.Point(15, 119);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(499, 67);
             this.groupBox1.TabIndex = 22;
@@ -438,8 +442,9 @@
             // 
             // chkCustomArgs
             // 
+            this.chkCustomArgs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.chkCustomArgs.AutoSize = true;
-            this.chkCustomArgs.Location = new System.Drawing.Point(15, 219);
+            this.chkCustomArgs.Location = new System.Drawing.Point(15, 194);
             this.chkCustomArgs.Name = "chkCustomArgs";
             this.chkCustomArgs.Size = new System.Drawing.Size(85, 17);
             this.chkCustomArgs.TabIndex = 23;
@@ -450,21 +455,20 @@
             // 
             // txtCustomArgs
             // 
-            this.txtCustomArgs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.txtCustomArgs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCustomArgs.Enabled = false;
-            this.txtCustomArgs.Location = new System.Drawing.Point(106, 217);
+            this.txtCustomArgs.Location = new System.Drawing.Point(106, 192);
             this.txtCustomArgs.Name = "txtCustomArgs";
             this.txtCustomArgs.Size = new System.Drawing.Size(408, 20);
             this.txtCustomArgs.TabIndex = 24;
-            this.toolTip.SetToolTip(this.txtCustomArgs, "--write-auto-sub : Youtube ONLY\r\n--write-sub : All others\r\n> asd.txt : Console ou" +
-        "tput to file");
+            this.toolTip.SetToolTip(this.txtCustomArgs, resources.GetString("txtCustomArgs.ToolTip"));
             // 
             // btnCopyToClipboard
             // 
-            this.btnCopyToClipboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCopyToClipboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCopyToClipboard.AutoSize = true;
-            this.btnCopyToClipboard.Location = new System.Drawing.Point(309, 370);
+            this.btnCopyToClipboard.Location = new System.Drawing.Point(309, 345);
             this.btnCopyToClipboard.Name = "btnCopyToClipboard";
             this.btnCopyToClipboard.Size = new System.Drawing.Size(124, 23);
             this.btnCopyToClipboard.TabIndex = 25;
@@ -474,8 +478,9 @@
             // 
             // btnUpdateYoutubeDL
             // 
+            this.btnUpdateYoutubeDL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnUpdateYoutubeDL.AutoSize = true;
-            this.btnUpdateYoutubeDL.Location = new System.Drawing.Point(15, 370);
+            this.btnUpdateYoutubeDL.Location = new System.Drawing.Point(15, 345);
             this.btnUpdateYoutubeDL.Name = "btnUpdateYoutubeDL";
             this.btnUpdateYoutubeDL.Size = new System.Drawing.Size(124, 23);
             this.btnUpdateYoutubeDL.TabIndex = 26;
@@ -485,9 +490,9 @@
             // 
             // btnReset
             // 
-            this.btnReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnReset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnReset.AutoSize = true;
-            this.btnReset.Location = new System.Drawing.Point(228, 370);
+            this.btnReset.Location = new System.Drawing.Point(228, 345);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 27;
@@ -495,11 +500,51 @@
             this.btnReset.UseVisualStyleBackColor = true;
             this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
             // 
+            // txtUsername
+            // 
+            this.txtUsername.Location = new System.Drawing.Point(146, 64);
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(149, 20);
+            this.txtUsername.TabIndex = 28;
+            this.toolTip.SetToolTip(this.txtUsername, "Enter username here (if applicable)");
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(365, 64);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
+            this.txtPassword.Size = new System.Drawing.Size(149, 20);
+            this.txtPassword.TabIndex = 29;
+            this.toolTip.SetToolTip(this.txtPassword, "Enter password here (if applicable)\r\nNOTE :-\r\nPassword won\'t be saved across sess" +
+        "ions");
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(85, 67);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(55, 13);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "Username";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(306, 67);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 13);
+            this.label6.TabIndex = 31;
+            this.label6.Text = "Password";
+            // 
             // mainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(526, 632);
+            this.ClientSize = new System.Drawing.Size(526, 607);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtPassword);
+            this.Controls.Add(this.txtUsername);
             this.Controls.Add(this.btnReset);
             this.Controls.Add(this.btnUpdateYoutubeDL);
             this.Controls.Add(this.btnCopyToClipboard);
@@ -572,6 +617,10 @@
         private System.Windows.Forms.NumericUpDown txtPad;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.TextBox txtPassword;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }
 
